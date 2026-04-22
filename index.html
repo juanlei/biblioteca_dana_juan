@@ -3,25 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>biblioteca_dana_juan | Cargando...</title>
+    <title>ASIR | Login Sistema 2080</title>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* Estética Terminal Futurista 2080 */
+        body {
+            background-color: #020617; /* Azul/Negro hiper oscuro */
+            color: #38bdf8; /* Azul neón */
+            font-family: 'Share Tech Mono', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            background-image: 
+                linear-gradient(rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.9)),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(2, 132, 199, 0.1) 2px, rgba(2, 132, 199, 0.1) 4px);
+        }
+
+        .login-box {
+            background: rgba(12, 74, 110, 0.2);
+            padding: 40px;
+            border: 1px solid #0284c7;
+            border-radius: 8px;
+            box-shadow: 0 0 30px rgba(2, 132, 199, 0.2), inset 0 0 20px rgba(2, 132, 199, 0.1);
+            text-align: center;
+            width: 450px;
+            position: relative;
+        }
+
+        /* Esquinas tecnológicas */
+        .login-box::before, .login-box::after {
+            content: ''; position: absolute; width: 20px; height: 20px; border: 2px solid #38bdf8;
+        }
+        .login-box::before { top: -2px; left: -2px; border-right: none; border-bottom: none; }
+        .login-box::after { bottom: -2px; right: -2px; border-left: none; border-top: none; }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+            letter-spacing: 2px;
+        }
+
+        .status-lines {
+            text-align: left;
+            margin: 30px 0;
+            font-size: 0.9rem;
+            color: #94a3b8;
+            line-height: 1.6;
+        }
+
+        .highlight { color: #10b981; } /* Verde para el OK */
+
+        .btn-enter {
+            background-color: transparent;
+            color: #38bdf8;
+            border: 1px solid #38bdf8;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            font-family: 'Share Tech Mono', monospace;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .btn-enter:hover {
+            background-color: #38bdf8;
+            color: #020617;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+            font-weight: bold;
+        }
+
+        /* Animación de parpadeo para el cursor */
+        .cursor {
+            display: inline-block;
+            width: 10px;
+            height: 15px;
+            background-color: #38bdf8;
+            animation: blink 1s step-end infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+    </style>
 </head>
 <body>
-    <script>
-        fetch('libros.xml')
-            .then(response => response.text())
-            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-            .then(xml => {
-                const xslPromise = fetch('estilo.xsl').then(response => response.text());
-                return Promise.all([xml, xslPromise]);
-            })
-            .then(([xml, xslStr]) => {
-                const xsl = new window.DOMParser().parseFromString(xslStr, "text/xml");
-                const xsltProcessor = new XSLTProcessor();
-                xsltProcessor.importStylesheet(xsl);
-                const resultDocument = xsltProcessor.transformToFragment(xml, document);
-                document.body.innerHTML = ''; // Limpiar cuerpo
-                document.body.appendChild(resultDocument);
-            });
-    </script>
+
+    <div class="login-box">
+        <h1>[ ACCESO ASIR ]</h1>
+        <p style="color: #7dd3fc; margin-top: 0;">Módulo de Biblioteca :: dana_juan</p>
+
+        <div class="status-lines">
+            > Estableciendo conexión segura... <span class="highlight">[OK]</span><br>
+            > Verificando certificados SSL... <span class="highlight">[OK]</span><br>
+            > IP Origen: 192.168.1.100<br>
+            > Cifrado: AES-256-GCM<br>
+            > Esperando input del administrador<span class="cursor"></span>
+        </div>
+
+        <a href="libros.xml" class="btn-enter">INICIALIZAR BASE DE DATOS</a>
+    </div>
+
 </body>
 </html>

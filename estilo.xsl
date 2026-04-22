@@ -175,4 +175,32 @@
             <div class="details-section" id="detalles">
                 <h2><i class="fa-solid fa-circle-info"></i> Registros Completos de Base de Datos</h2>
                 
-                <xsl:for-each select="biblioteca/s
+                <xsl:for-each select="biblioteca/catalogo/libro">
+                <div class="detail-card">
+                    <xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
+                    
+                    <img class="detail-card-cover">
+                        <xsl:attribute name="src"><xsl:value-of select="portada"/></xsl:attribute>
+                        <xsl:attribute name="alt">Portada Grande <xsl:value-of select="titulo"/></xsl:attribute>
+                    </img>
+                    
+                    <div class="detail-info">
+                        <h3><xsl:value-of select="titulo"/></h3>
+                        <p><small>Autor: <xsl:value-of select="autor"/> | Año: <xsl:value-of select="anio"/></small></p>
+                        <p class="sinopsis"><xsl:value-of select="sinopsis"/></p>
+                        <p>
+                            <span class="asir-badge">Categoría: <xsl:value-of select="genero"/></span>
+                        </p>
+                        <p style="color: #64748b; font-size: 0.8rem; border-top: 1px solid #f1f5f9; padding-top:10px;">
+                            <i class="fa-solid fa-code"></i> Detalles ASIR/Metadatos: <xsl:value-of select="detalles_tecnicos"/>
+                        </p>
+                    </div>
+                </div>
+                </xsl:for-each>
+            </div>
+
+        </div>
+    </body>
+    </html>
+</xsl:template>
+</xsl:stylesheet>
