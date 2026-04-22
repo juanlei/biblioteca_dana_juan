@@ -2,43 +2,40 @@
 <?xml-stylesheet type="text/xsl" href="estilo.xsl"?>
 <biblioteca>
     <sistema>
-        <servidor>Ubuntu Server 22.04 LTS</servidor>
+        <servidor_ip>192.168.1.100</servidor_ip>
         <estado>Online</estado>
-        <ip>192.168.1.25</ip>
+        <zona>Red Local ASIR-1</zona>
     </sistema>
-    
+
     <catalogo>
-        <libro id="sys-01">
-            <titulo>Redes de Computadoras</titulo>
-            <autor>Andrew S. Tanenbaum</autor>
-            <anio>2021</anio>
-            <genero>Infraestructura</genero>
-            <estado>Disponible</estado>
-            <portada>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
-        </libro>
-        <libro id="sys-02">
-            <titulo>Linux Command Line</titulo>
-            <autor>William Shotts</autor>
-            <anio>2019</anio>
-            <genero>Sistemas Operativos</genero>
-            <estado>Prestado</estado>
-            <portada>https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
-        </libro>
-        <libro id="sec-01">
-            <titulo>Ciberseguridad Práctica</titulo>
-            <autor>Chema Alonso</autor>
-            <anio>2023</anio>
-            <genero>Seguridad</genero>
-            <estado>Disponible</estado>
-            <portada>https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
-        </libro>
-        <libro id="lit-01">
+        <libro id="quijote">
             <titulo>El Quijote</titulo>
             <autor>Miguel de Cervantes</autor>
             <anio>1605</anio>
-            <genero>Clásico</genero>
-            <estado>Mantenimiento</estado>
-            <portada>https://images.unsplash.com/photo-1456615074700-1dc12aa7364d?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
+            <genero>Novela Clásica</genero>
+            <portada>https://images.unsplash.com/photo-1543002588-bfa7400217e3?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
+            <sinopsis>Considerada la primera novela moderna y una de las mejores obras de la literatura universal. Narra las aventuras de un hidalgo loco que cree ser un caballero andante.</sinopsis>
+            <detalles_tecnicos>Páginas: 1024, Idioma: Español Antiguo.</detalles_tecnicos>
+        </libro>
+        
+        <libro id="soledad">
+            <titulo>Cien Años de Soledad</titulo>
+            <autor>Gabriel García Márquez</autor>
+            <anio>1967</anio>
+            <genero>Realismo Mágico</genero>
+            <portada>https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
+            <sinopsis>La obra maestra del realismo mágico, que cuenta la historia de la familia Buendía a lo largo de siete generaciones en el pueblo ficticio de Macondo.</sinopsis>
+            <detalles_tecnicos>Edición: Conmemorativa RAE, ISBN: 9788420471839.</detalles_tecnicos>
+        </libro>
+        
+        <libro id="orwell">
+            <titulo>1984</titulo>
+            <autor>George Orwell</autor>
+            <anio>1949</anio>
+            <genero>Distopía</genero>
+            <portada>https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
+            <sinopsis>Una novela distópica clásica que explora el control totalitario, la vigilancia masiva y la manipulación de la verdad en una sociedad futura.</sinopsis>
+            <detalles_tecnicos>Clasificación ASIR: Seguridad de la Información, Impacto Social.</detalles_tecnicos>
         </libro>
     </catalogo>
 </biblioteca>

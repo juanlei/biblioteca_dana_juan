@@ -3,84 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>biblioteca_dana_juan | Inicio</title>
-    <style>
-        /* Diseño moderno y minimalista */
-        body {
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-            background: #0f172a;
-            color: #f8fafc;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 24px;
-            border: 1px dotted rgba(255, 255, 255, 0.2);
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            background: linear-gradient(to right, #818cf8, #c084fc);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #6366f1;
-            color: white;
-            padding: 12px 32px;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background: #4f46e5;
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgba(99, 102, 241, 0.4);
-        }
-
-        .footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 0.8rem;
-            color: #475569;
-        }
-    </style>
+    <title>biblioteca_dana_juan | Cargando...</title>
 </head>
 <body>
-
-    <div class="container">
-        <h1>biblioteca_dana_juan</h1>
-        <p>Sistema de gestión de libros mediante XML y XSLT</p>
-        
-        <a href="libros.xml" class="btn">Entrar a la Biblioteca</a>
-    </div>
-
-    <div class="footer">
-        Desarrollado para GitHub Pages
-    </div>
-
+    <script>
+        fetch('libros.xml')
+            .then(response => response.text())
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            .then(xml => {
+                const xslPromise = fetch('estilo.xsl').then(response => response.text());
+                return Promise.all([xml, xslPromise]);
+            })
+            .then(([xml, xslStr]) => {
+                const xsl = new window.DOMParser().parseFromString(xslStr, "text/xml");
+                const xsltProcessor = new XSLTProcessor();
+                xsltProcessor.importStylesheet(xsl);
+                const resultDocument = xsltProcessor.transformToFragment(xml, document);
+                document.body.innerHTML = ''; // Limpiar cuerpo
+                document.body.appendChild(resultDocument);
+            });
+    </script>
 </body>
 </html>
