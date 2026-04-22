@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="estilo.xsl"?>
+<biblioteca>
+    <libro id="libro1">
+        <titulo>El Quijote</titulo>
+        <autor>Miguel de Cervantes</autor>
+        <anio>1605</anio>
+        <genero>Novela</genero>
+    </libro>
+    <libro id="libro2">
+        <titulo>Cien Años de Soledad</titulo>
+        <autor>Gabriel García Márquez</autor>
+        <anio>1967</anio>
+        <genero>Realismo Mágico</genero>
+    </libro>
+    <libro id="libro3">
+        <titulo>1984</titulo>
+        <autor>George Orwell</autor>
+        <anio>1949</anio>
+        <genero>Distopía</genero>
+    </libro>
+</biblioteca>
