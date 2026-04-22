@@ -1,22 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="estilo.xsl"?>
 <biblioteca>
-    <libro id="libro1">
-        <titulo>El Quijote</titulo>
-        <autor>Miguel de Cervantes</autor>
-        <anio>1605</anio>
-        <genero>Novela</genero>
-    </libro>
-    <libro id="libro2">
-        <titulo>Cien Años de Soledad</titulo>
-        <autor>Gabriel García Márquez</autor>
-        <anio>1967</anio>
-        <genero>Realismo Mágico</genero>
-    </libro>
-    <libro id="libro3">
-        <titulo>1984</titulo>
-        <autor>George Orwell</autor>
-        <anio>1949</anio>
-        <genero>Distopía</genero>
-    </libro>
+    <sistema>
+        <servidor>Ubuntu Server 22.04 LTS</servidor>
+        <estado>Online</estado>
+        <ip>192.168.1.25</ip>
+    </sistema>
+    
+    <catalogo>
+        <libro id="sys-01">
+            <titulo>Redes de Computadoras</titulo>
+            <autor>Andrew S. Tanenbaum</autor>
+            <anio>2021</anio>
+            <genero>Infraestructura</genero>
+            <estado>Disponible</estado>
+            <portada>https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
+        </libro>
+        <libro id="sys-02">
+            <titulo>Linux Command Line</titulo>
+            <autor>William Shotts</autor>
+            <anio>2019</anio>
+            <genero>Sistemas Operativos</genero>
+            <estado>Prestado</estado>
+            <portada>https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
+        </libro>
+        <libro id="sec-01">
+            <titulo>Ciberseguridad Práctica</titulo>
+            <autor>Chema Alonso</autor>
+            <anio>2023</anio>
+            <genero>Seguridad</genero>
+            <estado>Disponible</estado>
+            <portada>https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
+        </libro>
+        <libro id="lit-01">
+            <titulo>El Quijote</titulo>
+            <autor>Miguel de Cervantes</autor>
+            <anio>1605</anio>
+            <genero>Clásico</genero>
+            <estado>Mantenimiento</estado>
+            <portada>https://images.unsplash.com/photo-1456615074700-1dc12aa7364d?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
+        </libro>
+    </catalogo>
 </biblioteca>
