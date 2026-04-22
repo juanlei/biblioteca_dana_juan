@@ -1,41 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="estilo.xsl"?>
 <biblioteca>
-    <sistema>
-        <servidor_ip>192.168.1.100</servidor_ip>
-        <estado>Online</estado>
-        <zona>Red Local ASIR-1</zona>
-    </sistema>
+    <encabezado>
+        <titulo>Biblioteca Central</titulo>
+        <descripcion>Catálogo Digital de Dana &amp; Juan</descripcion>
+    </encabezado>
 
     <catalogo>
-        <libro id="quijote">
+        <libro id="libro-quijote">
             <titulo>El Quijote</titulo>
             <autor>Miguel de Cervantes</autor>
             <anio>1605</anio>
             <genero>Novela Clásica</genero>
-            <portada>https://images.unsplash.com/photo-1543002588-bfa7400217e3?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
-            <sinopsis>Considerada la primera novela moderna y una de las mejores obras de la literatura universal. Narra las aventuras de un hidalgo loco que cree ser un caballero andante.</sinopsis>
-            <detalles_tecnicos>Páginas: 1024, Idioma: Español Antiguo.</detalles_tecnicos>
+            <portada>https://covers.openlibrary.org/b/id/12710346-M.jpg</portada>
+            <sinopsis>La historia del hidalgo Alonso Quijano, que enloquece leyendo libros de caballerías y decide convertirse en un caballero andante para deshacer agravios y proteger a los débiles.</sinopsis>
+            <estanteria>Pasillo A - Estante 1</estanteria>
         </libro>
         
-        <libro id="soledad">
+        <libro id="libro-soledad">
             <titulo>Cien Años de Soledad</titulo>
             <autor>Gabriel García Márquez</autor>
             <anio>1967</anio>
             <genero>Realismo Mágico</genero>
-            <portada>https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
-            <sinopsis>La obra maestra del realismo mágico, que cuenta la historia de la familia Buendía a lo largo de siete generaciones en el pueblo ficticio de Macondo.</sinopsis>
-            <detalles_tecnicos>Edición: Conmemorativa RAE, ISBN: 9788420471839.</detalles_tecnicos>
+            <portada>https://covers.openlibrary.org/b/id/14413159-M.jpg</portada>
+            <sinopsis>Narra la épica y mítica historia de la familia Buendía a lo largo de siete generaciones en el pueblo ficticio de Macondo, explorando temas de amor, guerra y destino.</sinopsis>
+            <estanteria>Pasillo A - Estante 2</estanteria>
+        </libro>
+
+        <libro id="libro-anillos">
+            <titulo>El Señor de los Anillos</titulo>
+            <autor>J.R.R. Tolkien</autor>
+            <anio>1954</anio>
+            <genero>Fantasía Épica</genero>
+            <portada>https://covers.openlibrary.org/b/id/8406786-M.jpg</portada>
+            <sinopsis>Un hobbit llamado Frodo Bolsón hereda un anillo mágico que resulta ser el Anillo Único. Deberá emprender un peligroso viaje hacia el Monte del Destino para destruirlo.</sinopsis>
+            <estanteria>Pasillo B - Estante 1</estanteria>
+        </libro>
+
+        <libro id="libro-dune">
+            <titulo>Dune</titulo>
+            <autor>Frank Herbert</autor>
+            <anio>1965</anio>
+            <genero>Ciencia Ficción</genero>
+            <portada>https://covers.openlibrary.org/b/id/13147150-M.jpg</portada>
+            <sinopsis>Ubicada en el desértico planeta Arrakis, narra la historia del joven Paul Atreides, cuya familia asume el control del único lugar donde se encuentra la especia, la sustancia más valiosa del universo.</sinopsis>
+            <estanteria>Pasillo B - Estante 3</estanteria>
+        </libro>
+
+        <libro id="libro-orgullo">
+            <titulo>Orgullo y Prejuicio</titulo>
+            <autor>Jane Austen</autor>
+            <anio>1813</anio>
+            <genero>Romance Clásico</genero>
+            <portada>https://covers.openlibrary.org/b/id/8259445-M.jpg</portada>
+            <sinopsis>Sigue el desarrollo del personaje de Elizabeth Bennet, quien aprende sobre las repercusiones de los juicios apresurados y llega a apreciar la diferencia entre lo superficial y lo esencial.</sinopsis>
+            <estanteria>Pasillo C - Estante 1</estanteria>
         </libro>
         
-        <libro id="orwell">
+        <libro id="libro-orwell">
             <titulo>1984</titulo>
             <autor>George Orwell</autor>
             <anio>1949</anio>
             <genero>Distopía</genero>
-            <portada>https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&amp;fit=crop&amp;w=300&amp;q=80</portada>
-            <sinopsis>Una novela distópica clásica que explora el control totalitario, la vigilancia masiva y la manipulación de la verdad en una sociedad futura.</sinopsis>
-            <detalles_tecnicos>Clasificación ASIR: Seguridad de la Información, Impacto Social.</detalles_tecnicos>
+            <portada>https://covers.openlibrary.org/b/id/15316040-M.jpg</portada>
+            <sinopsis>Una escalofriante visión de un futuro totalitario donde el "Gran Hermano" controla cada aspecto de la vida humana, reescribiendo la historia y castigando el libre pensamiento.</sinopsis>
+            <estanteria>Pasillo C - Estante 5</estanteria>
+        </libro>
+
+        <libro id="libro-principito">
+            <titulo>El Principito</titulo>
+            <autor>Antoine de Saint-Exupéry</autor>
+            <anio>1943</anio>
+            <genero>Fábula / Filosofía</genero>
+            <portada>https://covers.openlibrary.org/b/id/12624838-M.jpg</portada>
+            <sinopsis>Un piloto perdido en el desierto del Sahara conoce a un pequeño príncipe que viaja de planeta en planeta haciendo preguntas que los adultos suelen ignorar.</sinopsis>
+            <estanteria>Pasillo Infantil - Estante 2</estanteria>
         </libro>
     </catalogo>
 </biblioteca>

@@ -4,200 +4,121 @@
     <html lang="es">
     <head>
         <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <title>biblioteca_dana_juan | SysAdmin Dashboard</title>
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+        <title>Catálogo | Biblioteca Dana y Juan</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Poppins:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
         <style>
             :root {
-                --primary: #0284c7; /* Azul Principal Moderno */
-                --secondary: #0c4a6e; /* Azul Marino Oscuro */
-                --bg-light: #f0f9ff;
-                --text-main: #0f172a;
-                --card-bg: #ffffff;
+                --azul-oscuro: #0f172a;
+                --azul-medio: #3b82f6;
+                --azul-claro: #eff6ff;
+                --texto: #334155;
             }
             body {
-                font-family: 'Inter', sans-serif;
-                background-color: var(--bg-light);
-                color: var(--text-main);
+                font-family: 'Poppins', sans-serif;
+                background-color: var(--azul-claro);
+                color: var(--texto);
                 margin: 0;
-                /* IMPORTANTE: Scrolling suave moderno con CSS */
-                scroll-behavior: smooth; 
+                scroll-behavior: smooth; /* Movimiento suave al hacer click */
             }
             
-            /* Menú Superior Moderno Azul */
-            .navbar {
-                background: linear-gradient(135deg, var(--secondary) 0%, #0369a1 100%);
+            .header {
+                background: linear-gradient(135deg, var(--azul-oscuro), #1e3a8a);
                 color: white;
-                padding: 15px 30px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-                position: sticky; top: 0; z-index: 1000;
+                padding: 40px 20px;
+                text-align: center;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                position: sticky;
+                top: 0;
+                z-index: 100;
             }
-            .navbar h1 { margin: 0; font-size: 1.5rem; font-weight: 700; }
-            .ip-badge { background: rgba(255,255,255,0.2); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; }
-            
-            /* Contenedor Principal */
-            .container { padding: 40px 30px; max-width: 1200px; margin: 0 auto; }
-            
-            /* Tarjetas de estadísticas tipo Dashboard */
-            .stats-row {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                gap: 20px;
-                margin-bottom: 40px;
-            }
-            .stat-card {
-                background: var(--card-bg);
-                padding: 20px;
-                border-radius: 12px;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-                display: flex;
-                align-items: center;
-                border-bottom: 4px solid var(--primary);
-            }
-            .stat-icon { font-size: 2.5rem; color: #a1a1aa; margin-right: 20px; }
-            .stat-info h3 { margin: 0; font-size: 0.9rem; color: #71717a; text-transform: uppercase; }
-            .stat-info p { margin: 5px 0 0; font-size: 1.8rem; font-weight: 700; }
-            
-            /* Tabla Central Moderna */
-            .table-container {
-                background: var(--card-bg);
-                border-radius: 12px;
-                box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+            .header h1 { margin: 0; font-family: 'Playfair Display', serif; font-size: 2.5rem; letter-spacing: 1px; }
+            .header p { margin: 10px 0 0; color: #93c5fd; font-size: 1.1rem; }
+
+            .contenedor { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+            /* Tabla Principal */
+            .tabla-contenedor {
+                background: white;
+                border-radius: 15px;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.05);
                 overflow: hidden;
+                margin-bottom: 80px;
             }
-            table { width: 100%; border-collapse: collapse; }
-            th { background: #f8fafc; color: #64748b; text-align: left; padding: 15px 20px; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; border-bottom: 2px solid #e2e8f0; }
+            table { width: 100%; border-collapse: collapse; text-align: left; }
+            th { background-color: #f8fafc; color: var(--azul-oscuro); padding: 20px; text-transform: uppercase; font-size: 0.9rem; border-bottom: 2px solid #e2e8f0; }
             td { padding: 15px 20px; border-bottom: 1px solid #f1f5f9; vertical-align: middle; }
             
-            /* Filas con Enlaces para el scroll */
-            tr:not(.table-header):hover { background-color: #f0f9ff; cursor: pointer; transition: 0.2s; }
+            /* Fila clickeable */
+            tr.fila-libro { cursor: pointer; transition: all 0.2s ease; }
+            tr.fila-libro:hover { background-color: #dbeafe; transform: scale(1.01); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+            tr.fila-libro:hover td { color: var(--azul-medio); font-weight: 600; }
             
-            /* Miniatura de portada en la tabla */
-            .table-book-cover { width: 40px; height: 60px; object-fit: cover; border-radius: 4px; border: 1px solid #e2e8f0; }
-            
-            /* Estilo del enlace de scroll */
-            .scroll-link { text-decoration: none; color: inherit; display: block; width: 100%; }
-            .scroll-link:hover { color: var(--primary); font-weight: 600; }
+            .miniatura { width: 45px; height: 65px; object-fit: cover; border-radius: 4px; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
 
-            /* Sección Detallada de Libros (Abajo) */
-            .details-section {
-                padding: 50px 0;
-                min-height: 100vh; /* Para forzar el scroll */
+            .titulo-fichas { text-align: center; font-family: 'Playfair Display', serif; color: var(--azul-oscuro); font-size: 2.2rem; margin-bottom: 40px; }
+            .titulo-fichas::after { content: ''; width: 80px; height: 4px; background: var(--azul-medio); display: block; margin: 10px auto; border-radius: 2px; }
+
+            /* Fichas detalladas (Abajo) */
+            .ficha-libro {
+                background: white;
+                border-radius: 20px;
+                padding: 40px;
+                margin-bottom: 40px;
+                display: flex;
+                gap: 40px;
+                box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+                border-left: 8px solid var(--azul-medio);
+                scroll-margin-top: 130px; /* Evita que el menú tape el título al saltar */
             }
-            .details-section h2 { border-bottom: 3px solid var(--primary); display: inline-block; padding-bottom: 10px; margin-bottom: 40px; }
+            .ficha-portada { width: 180px; height: 270px; object-fit: cover; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+            .ficha-info h2 { margin: 0 0 10px 0; font-family: 'Playfair Display', serif; color: var(--azul-oscuro); font-size: 2rem; }
+            .ficha-info .autor-anio { color: var(--azul-medio); font-weight: 600; font-size: 1.1rem; margin-bottom: 20px; }
+            .ficha-info p.sinopsis { line-height: 1.7; color: #475569; font-size: 1.05rem; }
             
-            /* Tarjeta de Detalle Único */
-            .detail-card {
-                background: var(--card-bg);
-                padding: 30px;
-                border-radius: 12px;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-                margin-bottom: 30px;
-                display: grid;
-                grid-template-columns: 180px 1fr;
-                gap: 30px;
-                /* IMPORTANTE: Offset para que el menú sticky no tape el título al saltar */
-                scroll-margin-top: 100px; 
-            }
-            .detail-card-cover { width: 100%; height: 270px; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-            .detail-card h3 { margin: 0 0 10px 0; font-size: 1.8rem; color: var(--secondary); }
-            .detail-card p { color: #475569; line-height: 1.6; }
-            .asir-badge { background: #e0f2fe; color: var(--secondary); padding: 5px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+            .badge { display: inline-block; background: #e0f2fe; color: #0369a1; padding: 8px 16px; border-radius: 30px; font-weight: 600; font-size: 0.9rem; margin-top: 15px; }
         </style>
     </head>
     <body>
-        <div class="navbar">
-            <h1><i class="fa-solid fa-server"></i> ASIR Database | biblioteca_dana_juan</h1>
-            <div class="ip-badge">Node IP: <xsl:value-of select="biblioteca/sistema/servidor_ip"/></div>
+
+        <div class="header">
+            <h1><xsl:value-of select="biblioteca/encabezado/titulo"/></h1>
+            <p><xsl:value-of select="biblioteca/encabezado/descripcion"/></p>
         </div>
 
-        <div class="container">
-            <div class="stats-row">
-                <div class="stat-card">
-                    <i class="fa-solid fa-book-open stat-icon"></i>
-                    <div class="stat-info">
-                        <h3>Total Registros</h3>
-                        <p><xsl:value-of select="count(biblioteca/catalogo/libro)"/></p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fa-solid fa-network-wired stat-icon" style="color: #10b981;"></i>
-                    <div class="stat-info">
-                        <h3>Servidor</h3>
-                        <p><xsl:value-of select="biblioteca/sistema/estado"/></p>
-                    </div>
-                </div>
-                <div class="stat-card">
-                    <i class="fa-solid fa-location-dot stat-icon"></i>
-                    <div class="stat-info">
-                        <h3>Zona</h3>
-                        <p style="font-size: 1.2rem; margin-top:10px;"><xsl:value-of select="biblioteca/sistema/zona"/></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="table-container">
+        <div class="contenedor">
+            
+            <div class="tabla-contenedor">
                 <table>
-                    <tr class="table-header">
+                    <tr>
                         <th>Portada</th>
-                        <th>Título</th>
+                        <th>Título de la Obra</th>
                         <th>Autor</th>
-                        <th>Año / Género</th>
+                        <th>Género</th>
                     </tr>
                     <xsl:for-each select="biblioteca/catalogo/libro">
-                    <tr>
-                        <td>
-                            <img class="table-book-cover">
-                                <xsl:attribute name="src"><xsl:value-of select="portada"/></xsl:attribute>
-                                <xsl:attribute name="alt">Portada <xsl:value-of select="titulo"/></xsl:attribute>
-                            </img>
-                        </td>
-                        <td>
-                            <a class="scroll-link">
-                                <xsl:attribute name="href">#<xsl:value-of select="@id"/></xsl:attribute>
-                                <strong><xsl:value-of select="titulo"/></strong>
-                            </a>
-                        </td>
+                    <tr class="fila-libro" onclick="window.location.href='#{@id}'">
+                        <td><img class="miniatura" src="{portada}" alt="Portada"/></td>
+                        <td><xsl:value-of select="titulo"/></td>
                         <td><xsl:value-of select="autor"/></td>
-                        <td>
-                            <xsl:value-of select="anio"/><br/>
-                            <small style="color: #64748b;"><xsl:value-of select="genero"/></small>
-                        </td>
+                        <td><xsl:value-of select="genero"/></td>
                     </tr>
                     </xsl:for-each>
                 </table>
             </div>
 
-            <div class="details-section" id="detalles">
-                <h2><i class="fa-solid fa-circle-info"></i> Registros Completos de Base de Datos</h2>
-                
-                <xsl:for-each select="biblioteca/catalogo/libro">
-                <div class="detail-card">
-                    <xsl:attribute name="id"><xsl:value-of select="@id"/></xsl:attribute>
-                    
-                    <img class="detail-card-cover">
-                        <xsl:attribute name="src"><xsl:value-of select="portada"/></xsl:attribute>
-                        <xsl:attribute name="alt">Portada Grande <xsl:value-of select="titulo"/></xsl:attribute>
-                    </img>
-                    
-                    <div class="detail-info">
-                        <h3><xsl:value-of select="titulo"/></h3>
-                        <p><small>Autor: <xsl:value-of select="autor"/> | Año: <xsl:value-of select="anio"/></small></p>
-                        <p class="sinopsis"><xsl:value-of select="sinopsis"/></p>
-                        <p>
-                            <span class="asir-badge">Categoría: <xsl:value-of select="genero"/></span>
-                        </p>
-                        <p style="color: #64748b; font-size: 0.8rem; border-top: 1px solid #f1f5f9; padding-top:10px;">
-                            <i class="fa-solid fa-code"></i> Detalles ASIR/Metadatos: <xsl:value-of select="detalles_tecnicos"/>
-                        </p>
-                    </div>
+            <h2 class="titulo-fichas">Colección Detallada</h2>
+
+            <xsl:for-each select="biblioteca/catalogo/libro">
+            <div class="ficha-libro" id="{@id}">
+                <img class="ficha-portada" src="{portada}" alt="Portada de {titulo}"/>
+                <div class="ficha-info">
+                    <h2><xsl:value-of select="titulo"/></h2>
+                    <div class="autor-anio">Escrito por <xsl:value-of select="autor"/> en <xsl:value-of select="anio"/></div>
+                    <p class="sinopsis"><xsl:value-of select="sinopsis"/></p>
+                    <div class="badge">Ubicación: <xsl:value-of select="estanteria"/></div>
                 </div>
-                </xsl:for-each>
             </div>
+            </xsl:for-each>
 
         </div>
     </body>
